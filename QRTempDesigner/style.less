@@ -1,0 +1,218 @@
+.drawingpad-colorpicker {
+    margin-bottom: 0;
+
+    .ant-form-item-control-input {
+        min-height: auto;
+    }
+
+    .ant-pro-field-color-picker {
+        width: 14px !important;
+        padding: 0 !important;
+        border: 0 !important;
+
+        > div {
+            width: 14px !important;
+            height: 14px !important;
+        }
+    }
+}
+
+.drawingpad-menu {
+    margin-bottom: 8px;
+    padding: 14px;
+    background-color: #fff;
+    user-select: none;
+
+    &_act {
+        display: inline-block;
+        margin-right: 8px;
+        padding: 3px;
+        color: #333;
+        vertical-align: middle;
+        border-radius: 3px;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.6;
+        }
+
+        &_pressed {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        &_hasmore {
+            position: relative;
+
+            &::after {
+                position: absolute;
+                right: 0;
+                bottom: 3px;
+                width: 0;
+                height: 0;
+                border-bottom: 6px solid #333;
+                border-left: 6px solid transparent;
+                content: ' ';
+            }
+        }
+
+        img {
+            width: 22px;
+            height: 22px;
+        }
+
+        .anticon {
+            font-size: 22px;
+            vertical-align: bottom;
+        }
+
+        &_colorpicker_container {
+            position: relative;
+            padding: 0 16px;
+        }
+
+        &_colorpicker {
+            position: absolute;
+            top: -20px;
+            left: 0;
+            z-index: 2;
+            width: 22px;
+            height: 22px;
+            border: 1px solid #ccc;
+
+            &_spare {
+                top: -4px;
+                left: 12px;
+                z-index: 1;
+            }
+        }
+
+        &_brush_type {
+            :global(.ant-dropdown-menu-item-icon) {
+                width: 22px;
+                text-align: center;
+            }
+        }
+
+        &_shape_type {
+            :global(.ant-dropdown-menu-item-icon) {
+                width: 26px;
+                text-align: center;
+            }
+        }
+    }
+
+    &_filters_form {
+        .ant-form-item {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.drawingpad-canvas_box > {
+    flex: 1;
+
+    div {
+        background-color: #fff;
+    }
+}
+
+.drawingpad-contextmenu {
+    position: fixed;
+    z-index: 99;
+    // padding: 12px;
+    background: rgba(255, 255, 255, 0.8);
+    border: solid 1px rgb(247, 247, 247);
+
+    &_close {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        color: #ccc;
+    }
+
+    &_line {
+        margin-bottom: 12px;
+
+        > label {
+            color: #333;
+        }
+    }
+}
+
+.drawingpad-controller {
+    display: flex;
+    flex-direction: column;
+    min-width: 280px;
+    max-width: 280px;
+    height: 80vh;
+    background-color: #cfd5dd;
+    border: solid 1px #000;
+    box-shadow: -3px 3px 6px #afaeae;
+
+    &_layers {
+        height: 300px;
+        padding: 12px 4px;
+        overflow-y: auto;
+        background-color: #000;
+        border-bottom: 1px solid #ccc;
+
+        &_list {
+            &_item {
+                padding: 12px;
+                background-color: #fff;
+                cursor: pointer;
+
+                &:hover {
+                    opacity: 0.9;
+                }
+
+                &_active {
+                    color: #fff;
+                    background-color: #afaeae;
+
+                    * {
+                        color: #fff;
+                    }
+                }
+
+                &_title {
+                    display: block;
+                    width: 100%;
+                    overflow: auto;
+                    white-space: nowrap;
+                    cursor: text;
+                }
+
+                &_eye {
+                    display: block;
+                    padding: 3px;
+                    border: solid 1px;
+                }
+            }
+        }
+    }
+
+    &_form {
+        flex: 1;
+        padding: 20px;
+        overflow-y: auto;
+
+        > div {
+            margin-bottom: 12px;
+
+            > label {
+                display: block;
+                margin-bottom: 3px;
+            }
+        }
+    }
+
+    &_sublabel {
+        margin-right: 4px;
+        margin-left: 2px;
+    }
+
+    &_colorpicker {
+        margin-bottom: 0;
+    }
+}

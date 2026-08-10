@@ -1,0 +1,39 @@
+export default {
+    "components.paymentFeeField.button.addRow": "Nouvelle ligne",
+    "components.paymentFeeField.button.delete": "Supprimer",
+    "components.paymentFeeField.title.description": "Description",
+    "components.paymentFeeField.title.fee_rate": "Taux de charge (%)",
+    "components.paymentFeeField.title.fee_amount":
+      "Montant des dépenses {currency}",
+    "components.paymentFeeField.title.begin_amount":
+      "Le montant de la transaction dépasse {currency}",
+    "components.paymentFeeField.title.fee_min": "Coût minimum {currency}",
+    "components.paymentFeeField.title.fee_capping": "Coût maximum {currency}",
+    "components.paymentFeeField.title.flat_fee": "Frais fixes {currency}",
+    "components.paymentFeeField.title.card_type": "Type de carte",
+    "components.paymentFeeField.title.bankcard_network_id":
+      "Réseau / commutateur de cartes",
+    "components.paymentFeeField.title.cost_fee_rate": "Precio de costo",
+    'components.paymentFeeField.title.refund_fee_rate': 'Taux des frais de service de remboursement (%)',
+    "components.paymentFeeField.card_type.debit": "Débits",
+    "components.paymentFeeField.card_type.credit": "Carte de crédit",
+    "components.paymentFeeField.card_type.validate.required":
+      "Ligne à préciser {line}",
+    "components.paymentFeeField.card_type.validate.cardTypeDuplicate":
+      "Le type de carte ne peut pas être le même en mode tarif unique",
+    "components.paymentFeeField.title.extra":
+      "Prix actuel inférieur au prix coûtant",
+    "components.paymentFeeField.title.card_present_mode":
+      "Mode de présentation de la carte",
+    "components.paymentFeeField.title.bankcard_network_name":
+      "Nom du réseau de carte bancaire",
+    "components.paymentFeeField.title.issuer_region": "Région d'émetteur",
+    "components.paymentFeeField.title.issuer_type": "Type d'émetteur",
+    "components.paymentFeeField.card_present_mode.physical": "Physique",
+    "components.paymentFeeField.card_present_mode.tokenized": "Tokenisé",
+    "components.paymentFeeField.issuer_region.domestic": "Domestique",
+    "components.paymentFeeField.issuer_region.foreign": "Étranger",
+    "components.paymentFeeField.issuer_type.on": "Sur",
+    "components.paymentFeeField.issuer_type.off": "Hors",
+  };
+  

@@ -1,0 +1,16 @@
+export default {
+    'component.drawingPad.menu.image.insertBg': 'Insert as Background',
+    'component.drawingPad.menu.image.insertLayer': 'Insert as A Layer',
+    'component.drawingPad.menu.image.insertLayerPatterns': 'Insert as A Layer Pattern',
+    'component.drawingPad.menu.fill.fillBg': 'Fill to Canvas',
+    'component.drawingPad.menu.fill.fillLayer': 'Fill to Layer',
+    'component.drawingPad.menu.brush.size': 'Brush Width',
+    'component.drawingPad.menu.brush.shadow.color': 'Brush Shadow Color',
+    'component.drawingPad.menu.brush.shadow.width': 'Brush Shadow Width',
+    'component.drawingPad.menu.brush.shadow.offset': 'Brush Shadow Offset',
+    'component.drawingPad.menu.eraser.size': 'Eraser Width',
+    'component.drawingPad.pick.contextmenu.delete': 'Remove Layer',
+    'component.drawingPad.pick.contextmenu.duplicate': 'Duplicate Layer',
+    'component.drawingPad.pick.contextmenu.combine': 'Combine Layers',
+    'component.drawingPad.pick.contextmenu.uncombine': 'UnCombine Layer',
+};

@@ -1,0 +1,16 @@
+export default {
+    'component.drawingPad.menu.image.insertBg': '背景として挿入',
+    'component.drawingPad.menu.image.insertLayer': '層として挿入',
+    'component.drawingPad.menu.image.insertLayerPatterns': 'Insert as A Layer Pattern',
+    'component.drawingPad.menu.fill.fillBg': 'フィルトゥキャンバス',
+    'component.drawingPad.menu.fill.fillLayer': 'フィルトゥレイヤー',
+    'component.drawingPad.menu.brush.size': 'ブラシ幅',
+    'component.drawingPad.menu.brush.shadow.color': 'ブラシシャドウ',
+    'component.drawingPad.menu.brush.shadow.width': 'シャドウ幅',
+    'component.drawingPad.menu.brush.shadow.offset': 'シャドウオフセット',
+    'component.drawingPad.menu.eraser.size': '消しゴム幅',
+    'component.drawingPad.pick.contextmenu.delete': 'レイヤー削除',
+    'component.drawingPad.pick.contextmenu.duplicate': 'レイヤーを複製',
+    'component.drawingPad.pick.contextmenu.combine': '結合層',
+    'component.drawingPad.pick.contextmenu.uncombine': '非結合層',
+};
