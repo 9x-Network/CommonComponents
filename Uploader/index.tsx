@@ -7,7 +7,7 @@ import type { MutableRefObject } from 'react';
 import React, { useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import Viewer from 'react-viewer';
 import type { ImageDecorator } from 'react-viewer/lib/ViewerProps';
-import { useIntl } from 'umi';
+import { useIntl } from '@umijs/max';
 
 export type UploaderProps = {
     children?: React.ReactNode;

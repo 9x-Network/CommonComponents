@@ -5,7 +5,7 @@ import { Alert, Select } from 'antd';
 import type { SelectProps, SelectValue } from 'antd/lib/select';
 import type { UIEvent } from 'react';
 import React, { useCallback, useState } from 'react';
-import { useIntl,useRequest } from 'umi';
+import { useIntl, useRequest } from '@umijs/max';
 
 export type AssociativeSelectData<DT> = {
     total: number;
@@ -179,23 +179,23 @@ const AssociativeSelect = <VT extends SelectValue = any, DT extends object = any
         if (labelRender) {
             return labelRender(item, page);
         }
-        return item[labelKey];
+        return (item as any)[labelKey];
     };
     const getValue = (item: DT) => {
         if (valueRender) {
             return valueRender(item, page);
         }
-        return item[valueKey];
+        return (item as any)[valueKey];
     };
     const getKey = (item: DT) => {
         if (typeof itemKey === 'function') {
             return itemKey(item);
         }
-        return item[itemKey];
+        return (item as any)[itemKey as string];
     };
     const getTitle = (item: DT) => {
-        return item[labelKey];
-    };   
+        return (item as any)[labelKey];
+    };
 
     const onSearch = (val: string) => {
         setSearchValue(val);
@@ -268,7 +268,7 @@ const AssociativeSelect = <VT extends SelectValue = any, DT extends object = any
         >
             {page.data.map((item) => {
                 const dom = (
-                    <Select.Option key={getKey(item)} value={getValue(item)}  title={getTitle(item)} sourcedata={item}>
+                    <Select.Option key={getKey(item)} value={getValue(item)} title={getTitle(item)} sourcedata={item}>
                         {getLabel(item)}
                     </Select.Option>
                 );

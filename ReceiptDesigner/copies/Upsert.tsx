@@ -1,7 +1,7 @@
 import type { ProFormProps } from '@ant-design/pro-form';
 import ProForm, { ModalForm, ProFormField } from '@ant-design/pro-form';
 import React, { useImperativeHandle, useRef, useState } from 'react';
-import { useIntl } from 'umi';
+import { useIntl } from '@umijs/max';
 import type { Copy } from '../interface';
 
 export type UpsertValue = Pick<Copy, 'id' | 'name'>;

@@ -1,6 +1,6 @@
 import { ColumnHeightOutlined, DashOutlined, LineOutlined } from '@ant-design/icons';
-import { Form, Radio ,Input} from 'antd';
-import { useIntl } from 'umi';
+import { Form, Radio, Input } from 'antd';
+import { useIntl } from '@umijs/max';
 import type { SeparatorComponent } from './index';
 
 const Property: SeparatorComponent['Property'] = ({ component, layout = 'vertical', ...rest }) => {
@@ -35,7 +35,7 @@ const Property: SeparatorComponent['Property'] = ({ component, layout = 'vertica
                 </Radio.Group>
             </Form.Item>
             <Form.Item label={'Visibility'} name={['attrs', 'visibility']}>
-               <Input placeholder={'input judgment condition'} />
+                <Input placeholder={'input judgment condition'} />
             </Form.Item>
         </Form>
     );

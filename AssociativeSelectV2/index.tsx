@@ -5,7 +5,7 @@ import { Alert, Select } from 'antd';
 import type { SelectProps, SelectValue } from 'antd/lib/select';
 import type { UIEvent } from 'react';
 import React, { useCallback, useEffect, useState } from 'react';
-import { useIntl, useRequest } from 'umi';
+import { useIntl, useRequest } from '@umijs/max';
 
 export type AssociativeSelectData<DT> = {
     total: number;

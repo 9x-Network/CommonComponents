@@ -1,7 +1,7 @@
 import CodeAssociateInput from '@/components/common/CodeAssociateInput';
 import { AlignCenterOutlined, AlignLeftOutlined, AlignRightOutlined } from '@ant-design/icons';
 import { Form, Radio } from 'antd';
-import { CommonGeneralSettings, useIntl } from 'umi';
+import { CommonGeneralSettings, useIntl } from '@umijs/max';
 import type { QRCodeComponent } from './index';
 
 const Property: QRCodeComponent['Property'] = ({ component, layout = 'vertical', ...rest }) => {

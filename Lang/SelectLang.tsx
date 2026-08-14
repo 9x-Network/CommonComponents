@@ -1,5 +1,5 @@
 import { GlobalOutlined } from '@ant-design/icons';
-import { SelectLang as UmiSelectLang } from 'umi';
+import { SelectLang as UmiSelectLang } from '@umijs/max';
 
 export type SelectLangProps = Parameters<typeof UmiSelectLang>[0];
 const SelectLang = (props: SelectLangProps) => {

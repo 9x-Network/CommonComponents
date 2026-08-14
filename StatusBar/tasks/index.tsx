@@ -6,7 +6,7 @@ import { ClearOutlined, InfoCircleOutlined, ReloadOutlined } from '@ant-design/i
 import { Alert, Avatar, Badge, Card, List, message, Modal, Popover, Tag, Tooltip } from 'antd';
 import type { PropsWithChildren } from 'react';
 import { useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
-import { getIntl, useRequest } from 'umi';
+import { getIntl, useRequest } from '@umijs/max';
 import useStyles from './index.style';
 import type { Task } from './service';
 import { clearCompletedTasks, getTasks } from './service';
@@ -232,9 +232,8 @@ const Tasks = (props: PropsWithChildren<TasksProps>) => {
                         renderItem={(item) => (
                             <List.Item
                                 key={item.task_id}
-                                className={`${styles.listItem} ${
-                                    item.file_url ? styles.clickable : ''
-                                }`}
+                                className={`${styles.listItem} ${item.file_url ? styles.clickable : ''
+                                    }`}
                                 onClick={() => {
                                     if (item.file_url) {
                                         window.open(getRemoteFile(item.file_url));
@@ -251,7 +250,7 @@ const Tasks = (props: PropsWithChildren<TasksProps>) => {
                                 <div>
                                     <Tag color={TaskStatus[item.status]?.color}>
                                         {item.status == 0
-                                            ? `${parseInt(item.progress) || 0}%`
+                                            ? `${parseInt(item.progress || '0') || 0}%`
                                             : TaskStatus[item.status]?.text}
                                     </Tag>
                                 </div>

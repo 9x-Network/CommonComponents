@@ -10,7 +10,7 @@ import { useControllableValue } from 'ahooks';
 import { message, Modal } from 'antd';
 import classnames from 'classnames';
 import React, { useEffect, useImperativeHandle, useState } from 'react';
-import { useIntl } from 'umi';
+import { useIntl } from '@umijs/max';
 import SourceCode from './menus/SourceCode';
 import useStyles from './RichTextEditor.style';
 

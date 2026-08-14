@@ -1,7 +1,7 @@
 import { PictureOutlined } from '@ant-design/icons';
 import { Dropdown, Modal } from 'antd';
 import { useRef, useState } from 'react';
-import { useIntl } from 'umi';
+import { useIntl } from '@umijs/max';
 import fabric from '../fabric';
 import type { MenuProps } from './index';
 

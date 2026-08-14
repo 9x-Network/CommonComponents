@@ -2,7 +2,7 @@ import type { APIProviderProps, MapProps } from '@vis.gl/react-google-maps';
 import { APIProvider, Map, useMap } from '@vis.gl/react-google-maps';
 import defaults from 'lodash/defaults';
 import React, { useEffect, useMemo, useRef } from 'react';
-import { useIntl } from 'umi';
+import { useIntl } from '@umijs/max';
 import services from './services';
 
 interface ExtEvents {

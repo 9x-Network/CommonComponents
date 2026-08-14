@@ -4,7 +4,7 @@ import type { MenuDataItem } from '@ant-design/pro-layout';
 import jexl from 'jexl';
 import cloneDeep from 'lodash/cloneDeep';
 import React from 'react';
-import { getLocale } from 'umi';
+import { getLocale } from '@umijs/max';
 import joinPath from 'url-join';
 
 export type Key = string | number;

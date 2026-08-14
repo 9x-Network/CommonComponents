@@ -1,7 +1,7 @@
 import { AlignCenterOutlined, AlignLeftOutlined, AlignRightOutlined } from '@ant-design/icons';
 import { Form, Radio } from 'antd';
 import debounce from 'lodash/debounce';
-import { useIntl } from 'umi';
+import { useIntl } from '@umijs/max';
 import type { ImageComponent } from './index';
 import Upload from './upload';
 

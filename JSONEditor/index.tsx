@@ -7,7 +7,7 @@ import 'jsoneditor/dist/jsoneditor.css';
 import type { CSSProperties } from 'react';
 import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { getLocale } from 'umi';
+import { getLocale } from '@umijs/max';
 
 export type JSONEditorInstance = Editor & {
     menu: HTMLDivElement;

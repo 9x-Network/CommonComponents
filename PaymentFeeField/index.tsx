@@ -9,7 +9,7 @@ import classnames from 'classnames';
 import type { RuleObject } from 'rc-field-form/lib/interface';
 import type { CSSProperties, PropsWithChildren } from 'react';
 import React, { useMemo } from 'react';
-import { getIntl, useIntl } from 'umi';
+import { getIntl, useIntl } from '@umijs/max';
 import useStyles from './index.style';
 
 export type FeeItem = {
@@ -81,7 +81,7 @@ export type PaymentFeeFieldProps = PropsWithChildren<{
             field: string;
             path: any[];
             render: (
-                props?: { value?: any; [key: string]: any },
+                props?: { value?: any;[key: string]: any },
                 options?: Partial<RenderMethodExtProps>,
             ) => React.ReactNode;
             currency?: string;
@@ -197,10 +197,10 @@ const RenderMethods = {
                     <>
                         {props.value?.toString()}
                         {ext.tooltip && (
-                                <Popover content={ext.tooltip}>
-                                    <InfoCircleOutlined className={'text-muted margin-xs-left'} />
-                                </Popover>
-                            )}
+                            <Popover content={ext.tooltip}>
+                                <InfoCircleOutlined className={'text-muted margin-xs-left'} />
+                            </Popover>
+                        )}
                     </>
                     // <Row align={'middle'}>
                     //     <Ellipsis width={200}>{props.value?.toString()}</Ellipsis>

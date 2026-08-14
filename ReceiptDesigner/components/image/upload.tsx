@@ -4,7 +4,7 @@ import { getRemoteFile } from '@/services/basis';
 import { UploadOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import React from 'react';
-import { CommonGeneralSettings, useIntl } from 'umi';
+import { CommonGeneralSettings, useIntl } from '@umijs/max';
 
 const Upload = ({ value, onChange }: { value?: string; onChange?: (value?: string) => void }) => {
     const { formatMessage } = useIntl();
