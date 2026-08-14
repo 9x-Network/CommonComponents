@@ -265,7 +265,7 @@ const Tasks = (props: PropsWithChildren<TasksProps>) => {
                 title={tip}
                 open={!!tip}
                 placement={'bottomRight'}
-                overlayStyle={{ maxWidth: '100%' }}
+                styles={{ root: { maxWidth: '100%' } }}
                 arrow={{ pointAtCenter: true }}
             >
                 <Badge dot={dot}>{children}</Badge>

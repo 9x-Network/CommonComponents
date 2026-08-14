@@ -1,11 +1,11 @@
 import { getCountries } from '@/services/basis';
 import { useControllableValue } from 'ahooks';
 import type { InputProps, InputRef, RefSelectProps } from 'antd';
-import { Empty, Input, Select, Spin } from 'antd';
+import { Empty, Input, Select, Spin, Space } from 'antd';
 import type { RuleObject } from 'antd/lib/form';
 import type { PropsWithChildren } from 'react';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { getIntl, useRequest, useStore } from 'umi';
+import { getIntl, useRequest, useStore } from '@umijs/max';
 import useStyles from './style.style';
 
 export interface PhoneNumberInputProps extends Omit<InputProps, 'addonBefore' | 'onChange'> {
@@ -35,7 +35,7 @@ const PhoneNumberInput = (props: PropsWithChildren<PhoneNumberInputProps>) => {
         onAreaCodeChange,
         ...rest
     } = props;
-    const { settings } = useStore().getState();
+    const { settings } = useStore<any>().getState();
     const [value, setValue] = useControllableValue<string | undefined>(props);
     const [code, setCode] = useControllableValue<string | undefined>(props, {
         valuePropName: 'areaCode',
@@ -128,89 +128,86 @@ const PhoneNumberInput = (props: PropsWithChildren<PhoneNumberInputProps>) => {
     );
 
     return (
-        <Input
-            addonBefore={
-                <>
-                    {prefix}
-                    <Select
-                        disabled={disabled || readOnly}
-                        className={styles.select}
-                        popupMatchSelectWidth={false}
-                        loading={loading}
-                        popupClassName={styles.dropdown}
-                        open={open}
-                        onDropdownVisibleChange={setOpen}
-                        value={code}
-                        onChange={onCodeChange}
-                        showSearch
-                        allowClear={false}
-                        onKeyDown={(evt) => {
-                            if (evt.key === ' ') {
-                                evt.preventDefault();
-                            }
-                        }}
-                        onClear={() => {
-                            setTimeout(() => {
-                                selectRef.current?.focus();
-                            }, 100);
-                        }}
-                        filterOption={(input, option) => {
-                            if (!option) return true;
-                            const item: any = option['data-item'];
-                            const text = input.toLowerCase().replace(/^\+/g, '');
-                            return (
-                                item.value.startsWith(text) ||
-                                item.label.toLowerCase().indexOf(text) >= 0
-                            );
-                        }}
-                        notFoundContent={loading ? <Spin /> : <Empty />}
-                        ref={selectRef}
-                        aria-autocomplete={'none'}
-                    >
-                        {data?.map((item: any) => (
-                            <Select.Option key={item.value} value={item.value} data-item={item}>
-                                <div className={'item'}>
-                                    <div className={'code'}>+{item.value}</div>
-                                    <div className={'country'}>{item.label}</div>
-                                </div>
-                            </Select.Option>
-                        ))}
-                    </Select>
-                </>
-            }
-            autoComplete={'none'}
-            className={styles.input}
-            onKeyDown={(e) => {
-                if (e.key === 'Backspace' && !inputRef.current!.input?.value) {
-                    onCodeChange('');
-                    selectRef.current?.focus();
-                    setOpen(true);
-                }
-            }}
-            onKeyPress={(e) => {
-                if (!code) {
-                    e.preventDefault();
-                    selectRef.current?.focus();
-                    setOpen(true);
-                }
-                // if (!/^[0-9]$/.test(e.key)) {
-                //     e.preventDefault();
-                // }
-            }}
-            disabled={loading || disabled}
-            readOnly={readOnly}
-            ref={inputRef}
-            onClick={() => {
-                if (!code) {
-                    selectRef.current?.focus();
-                    setOpen(true);
-                }
-            }}
-            maxLength={maxLength}
-            {...rest}
-            value={number}
-            onChange={(event) => onNumberChange(event.target.value)}
-        />
+        <Space.Compact className={styles.input} style={{ width: '100%' }}>
+            {prefix}
+            <Select
+                disabled={disabled || readOnly}
+                className={styles.select}
+                popupMatchSelectWidth={false}
+                loading={loading}
+                classNames={{ popup: { root: styles.dropdown } }}
+                open={open}
+                onOpenChange={setOpen}
+                value={code}
+                onChange={onCodeChange}
+                showSearch
+                allowClear={false}
+                onKeyDown={(evt) => {
+                    if (evt.key === ' ') {
+                        evt.preventDefault();
+                    }
+                }}
+                onClear={() => {
+                    setTimeout(() => {
+                        selectRef.current?.focus();
+                    }, 100);
+                }}
+                filterOption={(input, option) => {
+                    if (!option) return true;
+                    const item: any = option['data-item'];
+                    const text = input.toLowerCase().replace(/^\+/g, '');
+                    return (
+                        item.value.startsWith(text) ||
+                        item.label.toLowerCase().indexOf(text) >= 0
+                    );
+                }}
+                notFoundContent={loading ? <Spin /> : <Empty />}
+                ref={selectRef}
+                aria-autocomplete={'none'}
+            >
+                {data?.map((item: any) => (
+                    <Select.Option key={item.value} value={item.value} data-item={item}>
+                        <div className={'item'}>
+                            <div className={'code'}>+{item.value}</div>
+                            <div className={'country'}>{item.label}</div>
+                        </div>
+                    </Select.Option>
+                ))}
+            </Select>
+            <Input
+                autoComplete={'none'}
+                onKeyDown={(e) => {
+                    if (e.key === 'Backspace' && !inputRef.current!.input?.value) {
+                        onCodeChange('');
+                        selectRef.current?.focus();
+                        setOpen(true);
+                    }
+                }}
+                onKeyPress={(e) => {
+                    if (!code) {
+                        e.preventDefault();
+                        selectRef.current?.focus();
+                        setOpen(true);
+                    }
+                    // if (!/^[0-9]$/.test(e.key)) {
+                    //     e.preventDefault();
+                    // }
+                }}
+                disabled={loading || disabled}
+                readOnly={readOnly}
+                ref={inputRef}
+                onClick={() => {
+                    if (!code) {
+                        selectRef.current?.focus();
+                        setOpen(true);
+                    }
+                }}
+                maxLength={maxLength}
+                {...rest}
+                value={number}
+                onChange={(event) => onNumberChange(event.target.value)}
+            />
+        </Space.Compact>
     );
 };
 
