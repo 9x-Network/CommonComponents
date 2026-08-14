@@ -2,9 +2,9 @@ import CodeAssociateInput from '@/components/common/CodeAssociateInput';
 import Uploader from '@/components/common/Uploader';
 import { getRemoteFile } from '@/services/basis';
 import { UploadOutlined } from '@ant-design/icons';
+import { CommonGeneralSettings, useIntl } from '@umijs/max';
 import { Button } from 'antd';
 import React from 'react';
-import { CommonGeneralSettings, useIntl } from '@umijs/max';
 
 const Upload = ({ value, onChange }: { value?: string; onChange?: (value?: string) => void }) => {
     const { formatMessage } = useIntl();

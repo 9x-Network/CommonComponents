@@ -1,7 +1,7 @@
 import { getPublicPath } from '@/utils/utils';
+import { CommonGeneralSettings } from '@umijs/max';
 import { Select } from 'antd';
 import { useEffect, useRef } from 'react';
-import { CommonGeneralSettings } from '@umijs/max';
 import { useContextValue } from '../../context';
 import type { ToolbarMenuItem } from './index';
 

@@ -38,7 +38,7 @@ const Ellipsis = (props: EllipsisProps) => {
               WebkitBoxOrient: 'vertical',
               boxOrient: 'vertical',
               overflow: 'hidden',
-              wordBreak:'break-all',
+              wordBreak: 'break-all',
               WebkitLineClamp: line,
           };
     const content = (

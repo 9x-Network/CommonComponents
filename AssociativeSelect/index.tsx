@@ -1,11 +1,11 @@
 import { useDiffChange } from '@/utils/hooks/diffChange';
 import uRequest from '@/utils/request';
 import { LoadingOutlined } from '@ant-design/icons';
+import { useIntl, useRequest } from '@umijs/max';
 import { Alert, Select } from 'antd';
 import type { SelectProps, SelectValue } from 'antd/lib/select';
 import type { UIEvent } from 'react';
 import React, { useCallback, useState } from 'react';
-import { useIntl, useRequest } from '@umijs/max';
 
 export type AssociativeSelectData<DT> = {
     total: number;
@@ -268,7 +268,12 @@ const AssociativeSelect = <VT extends SelectValue = any, DT extends object = any
         >
             {page.data.map((item) => {
                 const dom = (
-                    <Select.Option key={getKey(item)} value={getValue(item)} title={getTitle(item)} sourcedata={item}>
+                    <Select.Option
+                        key={getKey(item)}
+                        value={getValue(item)}
+                        title={getTitle(item)}
+                        sourcedata={item}
+                    >
                         {getLabel(item)}
                     </Select.Option>
                 );

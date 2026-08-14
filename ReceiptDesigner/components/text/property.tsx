@@ -1,9 +1,9 @@
 import CodeAssociateInput from '@/components/common/CodeAssociateInput';
 import { toBoolean } from '@/utils/utils';
 import { AlignCenterOutlined, AlignLeftOutlined, AlignRightOutlined } from '@ant-design/icons';
+import { CommonGeneralSettings, useIntl } from '@umijs/max';
 import { Checkbox, Form, Radio } from 'antd';
 import { useMemo } from 'react';
-import { CommonGeneralSettings, useIntl } from '@umijs/max';
 import type { TextComponent } from './index';
 
 const Property: TextComponent['Property'] = ({

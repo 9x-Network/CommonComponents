@@ -81,17 +81,21 @@ const ContextMenu = ({
                 items: [
                     ...(isContainer ? [{ key: 'focus', label: 'Focus On' }] : []),
                     { key: 'copy', label: 'Copy' },
-                    ...(clipBoardData ? [
-                        {
-                            key: 'paste',
-                            label: 'Paste',
-                            children: [
-                                { key: 'pasteBefore', label: 'To before' },
-                                { key: 'pasteAfter', label: 'To after' },
-                                ...(isContainer ? [{ key: 'pasteInner', label: 'To inner' }] : []),
-                            ],
-                        },
-                    ] : []),
+                    ...(clipBoardData
+                        ? [
+                              {
+                                  key: 'paste',
+                                  label: 'Paste',
+                                  children: [
+                                      { key: 'pasteBefore', label: 'To before' },
+                                      { key: 'pasteAfter', label: 'To after' },
+                                      ...(isContainer
+                                          ? [{ key: 'pasteInner', label: 'To inner' }]
+                                          : []),
+                                  ],
+                              },
+                          ]
+                        : []),
                     { key: 'remove', label: 'Remove', danger: true },
                 ],
                 onClick: (evt) => handleMenuClick(evt.key),

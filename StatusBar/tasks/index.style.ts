@@ -21,7 +21,7 @@ const useStyles = createStyles(({ token }) => {
         },
         list: {
             paddingBottom: '12px',
-            '.ant-list-item': { 
+            '.ant-list-item': {
                 padding: '12px 24px',
             },
         },

@@ -1,7 +1,7 @@
+import { useIntl } from '@umijs/max';
 import { Popover, Slider } from 'antd';
 import classNames from 'classnames';
 import { useEffect, useState } from 'react';
-import { useIntl } from '@umijs/max';
 import CircleCursor from '../CircleCursor';
 import fabric from '../fabric';
 import iconEraser from '../icons/eraser.svg';

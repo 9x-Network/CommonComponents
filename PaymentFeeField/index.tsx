@@ -1,15 +1,14 @@
-import Ellipsis from '@/components/common/Ellipsis';
 import MoneyFormatter from '@/components/Formatter/MoneyFormatter';
 import { CardNetworkSelect } from '@/components/UniversalDataSelect';
 import { ExclamationCircleOutlined, InfoCircleOutlined } from '@ant-design/icons';
+import { getIntl, useIntl } from '@umijs/max';
 import type { InputNumberProps, InputProps } from 'antd';
-import { Button, Input, InputNumber, Popover, Row, Select, Table } from 'antd';
+import { Button, Input, InputNumber, Popover, Select, Table } from 'antd';
 import type { ColumnsType, TableProps } from 'antd/lib/table';
 import classnames from 'classnames';
 import type { RuleObject } from 'rc-field-form/lib/interface';
 import type { CSSProperties, PropsWithChildren } from 'react';
 import React, { useMemo } from 'react';
-import { getIntl, useIntl } from '@umijs/max';
 import useStyles from './index.style';
 
 export type FeeItem = {
@@ -81,7 +80,7 @@ export type PaymentFeeFieldProps = PropsWithChildren<{
             field: string;
             path: any[];
             render: (
-                props?: { value?: any;[key: string]: any },
+                props?: { value?: any; [key: string]: any },
                 options?: Partial<RenderMethodExtProps>,
             ) => React.ReactNode;
             currency?: string;
@@ -151,7 +150,7 @@ const FieldMap = {
         'flat_fee',
         'fee_min',
         'fee_capping',
-        'refund_fee_rate'
+        'refund_fee_rate',
     ],
 
     [FeeTypes.SINGLE_FEE_AMOUNT]: [
@@ -517,7 +516,8 @@ const PaymentFeeField = (props: PaymentFeeFieldProps) => {
                             field,
                             path,
                             authorizedShowFeeExtra,
-                            tooltip: showTooltip && showTooltip.length > 0 ? renderPopover(row) : null
+                            tooltip:
+                                showTooltip && showTooltip.length > 0 ? renderPopover(row) : null,
                         },
                         styles,
                     );

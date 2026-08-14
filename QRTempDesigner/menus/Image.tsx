@@ -1,7 +1,7 @@
 import { PictureOutlined } from '@ant-design/icons';
+import { useIntl } from '@umijs/max';
 import { Dropdown, Modal } from 'antd';
 import { useRef, useState } from 'react';
-import { useIntl } from '@umijs/max';
 import fabric from '../fabric';
 import type { MenuProps } from './index';
 
@@ -95,15 +95,21 @@ const Image = (props: MenuProps) => {
                     items: [
                         {
                             key: 'bg',
-                            label: formatMessage({ id: 'component.drawingPad.menu.image.insertBg' }),
+                            label: formatMessage({
+                                id: 'component.drawingPad.menu.image.insertBg',
+                            }),
                         },
                         {
                             key: 'layer',
-                            label: formatMessage({ id: 'component.drawingPad.menu.image.insertLayer' }),
+                            label: formatMessage({
+                                id: 'component.drawingPad.menu.image.insertLayer',
+                            }),
                         },
                         {
                             key: 'layer-patterns',
-                            label: formatMessage({ id: 'component.drawingPad.menu.image.insertLayerPatterns' }),
+                            label: formatMessage({
+                                id: 'component.drawingPad.menu.image.insertLayerPatterns',
+                            }),
                             disabled: disablePattern,
                         },
                     ],

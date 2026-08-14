@@ -1,7 +1,7 @@
-import { viewStyle } from './viewer-style';
 import classNames from 'classnames';
 import React, { useEffect, useRef, useState } from 'react';
 import useStyles from './RichTextViewer.style';
+import { viewStyle } from './viewer-style';
 
 export type RichTextViewerProps = {
     style?: React.CSSProperties;

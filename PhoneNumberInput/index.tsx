@@ -1,11 +1,11 @@
 import { getCountries } from '@/services/basis';
+import { getIntl, useRequest, useStore } from '@umijs/max';
 import { useControllableValue } from 'ahooks';
 import type { InputProps, InputRef, RefSelectProps } from 'antd';
-import { Empty, Input, Select, Spin, Space } from 'antd';
+import { Empty, Input, Select, Space, Spin } from 'antd';
 import type { RuleObject } from 'antd/lib/form';
 import type { PropsWithChildren } from 'react';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { getIntl, useRequest, useStore } from '@umijs/max';
 import useStyles from './style.style';
 
 export interface PhoneNumberInputProps extends Omit<InputProps, 'addonBefore' | 'onChange'> {
@@ -157,8 +157,7 @@ const PhoneNumberInput = (props: PropsWithChildren<PhoneNumberInputProps>) => {
                     const item: any = option['data-item'];
                     const text = input.toLowerCase().replace(/^\+/g, '');
                     return (
-                        item.value.startsWith(text) ||
-                        item.label.toLowerCase().indexOf(text) >= 0
+                        item.value.startsWith(text) || item.label.toLowerCase().indexOf(text) >= 0
                     );
                 }}
                 notFoundContent={loading ? <Spin /> : <Empty />}

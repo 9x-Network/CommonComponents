@@ -92,7 +92,7 @@ const Shape = (props: MenuProps) => {
                 menu={{
                     items: Object.keys(Shapes).map((key) => ({
                         key: key,
-                        icon: (<img src={Shapes[key].icon} />),
+                        icon: <img src={Shapes[key].icon} />,
                         classNames: 'drawingpad-menu_act_shape_type',
                     })),
                     onClick: ({ key }) => onMenu(key),

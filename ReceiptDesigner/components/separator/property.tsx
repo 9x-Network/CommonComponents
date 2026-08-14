@@ -1,6 +1,6 @@
 import { ColumnHeightOutlined, DashOutlined, LineOutlined } from '@ant-design/icons';
-import { Form, Radio, Input } from 'antd';
 import { useIntl } from '@umijs/max';
+import { Form, Input, Radio } from 'antd';
 import type { SeparatorComponent } from './index';
 
 const Property: SeparatorComponent['Property'] = ({ component, layout = 'vertical', ...rest }) => {

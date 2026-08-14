@@ -137,7 +137,7 @@ export class JSEncryptWithLong extends JSEncrypt {
         let maxChunkLength = 172,
             output = '',
             inOffset = 0;
-        while (text && (inOffset < text.length)) {
+        while (text && inOffset < text.length) {
             output += this.decrypt(text.substring(inOffset, inOffset + maxChunkLength));
             inOffset += maxChunkLength;
         }

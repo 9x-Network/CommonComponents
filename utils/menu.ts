@@ -1,10 +1,10 @@
 import MenuIcon from '@/components/MenuIcon';
 import { parseJSONSafety } from '@/utils/utils';
 import type { MenuDataItem } from '@ant-design/pro-layout';
+import { getLocale } from '@umijs/max';
 import jexl from 'jexl';
 import cloneDeep from 'lodash/cloneDeep';
 import React from 'react';
-import { getLocale } from '@umijs/max';
 import joinPath from 'url-join';
 
 export type Key = string | number;
@@ -160,13 +160,19 @@ export function convertResourceMenu(menus: MenuList, opts: { mergePath?: boolean
             const parentPath = parent && parent.path ? parent.path : '';
             const childPath = menu && menu.path ? menu.path : '';
             try {
-                menu.path = parentPath ? joinPath('/', parentPath, childPath) : joinPath('/', childPath);
+                menu.path = parentPath
+                    ? joinPath('/', parentPath, childPath)
+                    : joinPath('/', childPath);
             } catch (err) {
                 // Defensive fallback: if joinPath throws (e.g., undefined parts), preserve a safe string
                 // and log for diagnostics.
                 // Keep menu.path as a string so subsequent code doesn't blow up.
                 // eslint-disable-next-line no-console
-                console.warn('convertResourceMenu: failed to join menu.path', { parentPath, childPath, err });
+                console.warn('convertResourceMenu: failed to join menu.path', {
+                    parentPath,
+                    childPath,
+                    err,
+                });
                 menu.path = typeof childPath === 'string' && childPath ? childPath : '/';
             }
         }

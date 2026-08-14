@@ -1,7 +1,7 @@
 import CodeAssociateInput from '@/components/common/CodeAssociateInput';
 import { AlignCenterOutlined, AlignLeftOutlined, AlignRightOutlined } from '@ant-design/icons';
-import { Form, Radio } from 'antd';
 import { CommonGeneralSettings, useIntl } from '@umijs/max';
+import { Form, Radio } from 'antd';
 import type { BarCodeComponent } from './index';
 
 const Property: BarCodeComponent['Property'] = ({ component, layout = 'vertical', ...rest }) => {

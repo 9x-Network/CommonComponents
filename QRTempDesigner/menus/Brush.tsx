@@ -1,7 +1,7 @@
+import { useIntl } from '@umijs/max';
 import { Dropdown, Slider } from 'antd';
 import classNames from 'classnames';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { useIntl } from '@umijs/max';
 import CircleCursor from '../CircleCursor';
 import Contextmenu from '../Contextmenu';
 import fabric from '../fabric';
@@ -154,13 +154,11 @@ const GrabMode = (props: MenuProps) => {
                     document.getElementById('drawingPad-menu-brush_container')!
                 }
                 menu={{
-                    items: brushTypes.map((item) => (
-                        {
-                            key: item.name,
-                            icon: (<img src={item.icon} />),
-                            classNames: 'drawingpad-menu_act_brush_type',
-                        }
-                    ))
+                    items: brushTypes.map((item) => ({
+                        key: item.name,
+                        icon: <img src={item.icon} />,
+                        classNames: 'drawingpad-menu_act_brush_type',
+                    })),
                 }}
             >
                 <div

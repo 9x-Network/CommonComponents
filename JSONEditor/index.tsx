@@ -1,4 +1,5 @@
 import { FullscreenExitOutlined, FullscreenOutlined } from '@ant-design/icons';
+import { getLocale } from '@umijs/max';
 import { Button } from 'antd';
 import df from 'deep-diff';
 import type { JSONEditorOptions } from 'jsoneditor';
@@ -7,7 +8,6 @@ import 'jsoneditor/dist/jsoneditor.css';
 import type { CSSProperties } from 'react';
 import React, { useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { getLocale } from '@umijs/max';
 
 export type JSONEditorInstance = Editor & {
     menu: HTMLDivElement;

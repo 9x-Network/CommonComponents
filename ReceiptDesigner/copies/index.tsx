@@ -1,7 +1,7 @@
 import { EllipsisOutlined, PlusCircleOutlined } from '@ant-design/icons';
+import { useIntl } from '@umijs/max';
 import { Button, Col, Dropdown, Menu, Modal, Row } from 'antd';
 import { useRef } from 'react';
-import { useIntl } from '@umijs/max';
 import { useContextValue, useDisabledParts } from '../context';
 import type { Copy } from '../interface';
 import useStyles from './style.style';

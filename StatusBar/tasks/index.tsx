@@ -3,10 +3,10 @@ import DateFormatter from '@/components/Formatter/DateFormatter';
 import { getRemoteFile } from '@/services/basis';
 import { getPublicPath, getValueFromLocaleJSON } from '@/utils/utils';
 import { ClearOutlined, InfoCircleOutlined, ReloadOutlined } from '@ant-design/icons';
+import { getIntl, useRequest } from '@umijs/max';
 import { Alert, Avatar, Badge, Card, List, message, Modal, Popover, Tag, Tooltip } from 'antd';
 import type { PropsWithChildren } from 'react';
 import { useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
-import { getIntl, useRequest } from '@umijs/max';
 import useStyles from './index.style';
 import type { Task } from './service';
 import { clearCompletedTasks, getTasks } from './service';
@@ -232,8 +232,9 @@ const Tasks = (props: PropsWithChildren<TasksProps>) => {
                         renderItem={(item) => (
                             <List.Item
                                 key={item.task_id}
-                                className={`${styles.listItem} ${item.file_url ? styles.clickable : ''
-                                    }`}
+                                className={`${styles.listItem} ${
+                                    item.file_url ? styles.clickable : ''
+                                }`}
                                 onClick={() => {
                                     if (item.file_url) {
                                         window.open(getRemoteFile(item.file_url));

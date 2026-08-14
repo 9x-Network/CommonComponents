@@ -1,5 +1,6 @@
 import { getRequestCommonHeaders, getRequestUrl } from '@/utils/request';
 import { PlusOutlined } from '@ant-design/icons';
+import { useIntl } from '@umijs/max';
 import { Button, message, Upload } from 'antd';
 import type { UploadProps } from 'antd/lib/upload';
 import type { RcFile, UploadChangeParam, UploadFile } from 'antd/lib/upload/interface';
@@ -7,7 +8,6 @@ import type { MutableRefObject } from 'react';
 import React, { useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import Viewer from 'react-viewer';
 import type { ImageDecorator } from 'react-viewer/lib/ViewerProps';
-import { useIntl } from '@umijs/max';
 
 export type UploaderProps = {
     children?: React.ReactNode;

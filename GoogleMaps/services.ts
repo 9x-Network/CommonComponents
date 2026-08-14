@@ -47,7 +47,7 @@ export default {
             },
         });
     },
-    
+
     getGeocode: (options: { address?: string; latlng?: string }) => {
         return request(`https://maps.googleapis.com/maps/api/geocode/json`, {
             params: {

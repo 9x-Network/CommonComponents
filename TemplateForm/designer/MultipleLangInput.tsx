@@ -1,9 +1,9 @@
 import GlobalLangInput from '@/components/GlobalLangInput';
 import { getValueFromLocaleJSON } from '@/utils/utils';
 import { GlobalOutlined } from '@ant-design/icons';
+import { getLocale } from '@umijs/max';
 import { Col, Input, Row, Tag } from 'antd';
 import { useState } from 'react';
-import { getLocale } from '@umijs/max';
 
 type Value = string | Record<string, string>;
 

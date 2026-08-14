@@ -1,7 +1,7 @@
+import { useIntl } from '@umijs/max';
 import { Menu, Modal } from 'antd';
 import classNames from 'classnames';
 import { useEffect, useState } from 'react';
-import { useIntl } from '@umijs/max';
 import Contextmenu from '../Contextmenu';
 import { fabric } from '../fabric/fabric';
 import iconChoose from '../icons/choose.svg';

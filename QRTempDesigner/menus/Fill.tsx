@@ -1,6 +1,6 @@
+import { useIntl } from '@umijs/max';
 import { Dropdown } from 'antd';
 import { useEffect, useState } from 'react';
-import { useIntl } from '@umijs/max';
 import { fabric } from '../fabric/fabric';
 import iconFill from '../icons/fill.svg';
 import type { MenuProps } from './index';
@@ -53,15 +53,20 @@ const Fill = (props: MenuProps) => {
                 trigger={['click']}
                 getPopupContainer={() => document.getElementById('drawingPad-menu-fill_container')!}
                 menu={{
-                    items: [{
-                        key: 'bg',
-                        label: formatMessage({ id: 'component.drawingPad.menu.fill.fillBg' }),
-                    }, {
-                        key: 'layer',
-                        disabled: !hasSelection,
-                        label: formatMessage({ id: 'component.drawingPad.menu.fill.fillLayer' }),
-                    }],
-                    onClick: ({ key }) => fill(key)
+                    items: [
+                        {
+                            key: 'bg',
+                            label: formatMessage({ id: 'component.drawingPad.menu.fill.fillBg' }),
+                        },
+                        {
+                            key: 'layer',
+                            disabled: !hasSelection,
+                            label: formatMessage({
+                                id: 'component.drawingPad.menu.fill.fillLayer',
+                            }),
+                        },
+                    ],
+                    onClick: ({ key }) => fill(key),
                 }}
             >
                 <div className={'drawingpad-menu_act'}>

@@ -1,6 +1,7 @@
 import { useUser } from '@/models/user';
 import { getRemoteFile } from '@/services/basis';
 import { getRequestCommonHeaders, getRequestUrl } from '@/utils/request';
+import { useIntl } from '@umijs/max';
 import type { IDomEditor, IEditorConfig, IToolbarConfig } from '@wangeditor/editor';
 import { Boot, i18nChangeLanguage } from '@wangeditor/editor';
 import { Editor, Toolbar } from '@wangeditor/editor-for-react';
@@ -10,7 +11,6 @@ import { useControllableValue } from 'ahooks';
 import { message, Modal } from 'antd';
 import classnames from 'classnames';
 import React, { useEffect, useImperativeHandle, useState } from 'react';
-import { useIntl } from '@umijs/max';
 import SourceCode from './menus/SourceCode';
 import useStyles from './RichTextEditor.style';
 
