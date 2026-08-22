@@ -54,12 +54,14 @@ export const SensitiveDataEncrypt = (() => {
     const Encryptor = {
         publicKey: '',
         privateKey: '',
+        privateKeyIndex: '',
         async getPublicKey(cache: boolean = true): Promise<string> {
             if (cache && this.publicKey) {
                 return Promise.resolve(this.publicKey);
             }
             const data = await request.post(`bis/${AppPkgName}/security/rsa/publickey/get`);
-            this.publicKey = data.rsa_public_key;
+            this.publicKey = data.rsa_public_key || data.public_key;
+            this.privateKeyIndex = data.private_key || '';
             return this.publicKey;
         },
 
@@ -119,6 +121,7 @@ export const SensitiveDataEncrypt = (() => {
             console.log('[SensitiveDataEncrypt]', 'clear keys');
             Encryptor.publicKey = '';
             Encryptor.privateKey = '';
+            Encryptor.privateKeyIndex = '';
         });
     });
 
