@@ -85,7 +85,7 @@ export type AssociativeSelectProps<VT, DT> = {
      * 当加载错误时回调
      */
     onError?: (err: Error) => void;
-} & Omit<SelectProps<VT>, 'onSearch' | 'searchValue'>;
+} & Omit<SelectProps<VT>, 'onSearch' | 'searchValue' | 'labelRender'>;
 
 /**
  * 联想搜索+滚动分页下拉选择器
