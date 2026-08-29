@@ -36,7 +36,7 @@ const Uploader = React.forwardRef((props: UploaderProps, ref) => {
     );
     const {
         children = renderDefaultChildren(),
-        action: _action = `bis/${AppPkgName}/file/upload/`,
+        action: _action = `bis/${AppPkgName}/file/upload`,
         downloadPrefix = `bis/${AppPkgName}/file/download/`,
         name = 'file_data',
         withCredentials = true,
