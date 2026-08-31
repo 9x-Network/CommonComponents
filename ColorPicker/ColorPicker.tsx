@@ -1,6 +1,7 @@
 import type { ColorPickerProps as AntdColorPickerProps } from 'antd';
 import { ColorPicker as AntdColorPicker } from 'antd';
 import { useMemo } from 'react';
+import { normalizeColorToHex } from '../utils/color';
 
 export interface ColorPickerProps
     extends Omit<AntdColorPickerProps, 'value' | 'defaultValue' | 'onChange'> {
@@ -12,11 +13,11 @@ const ColorPicker = (props: ColorPickerProps) => {
     const { onChange, value, defaultValue, defaultFormat = 'rgb', ...restProps } = props;
     const safeValue = useMemo(() => {
         if (null != value && typeof value !== 'string') return undefined;
-        return value;
+        return normalizeColorToHex(value);
     }, [value]);
     const safeDefaultValue = useMemo(() => {
-        if (null != value && typeof value !== 'string') return undefined;
-        return defaultValue;
+        if (null != defaultValue && typeof defaultValue !== 'string') return undefined;
+        return normalizeColorToHex(defaultValue);
     }, [defaultValue]);
     return (
         <AntdColorPicker

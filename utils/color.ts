@@ -1,6 +1,32 @@
 /* eslint-disable no-bitwise */
 
 /**
+ * Normalize a color string to hex format (#rrggbb).
+ * Supports hex and rgb/rgba input.
+ */
+export function normalizeColorToHex(color?: string | null): string | undefined {
+    if (color == null || typeof color !== 'string') return undefined;
+    const trimmed = color.trim();
+    if (!trimmed) return undefined;
+
+    if (trimmed.startsWith('#')) {
+        return trimmed;
+    }
+
+    const rgbMatch = trimmed.match(
+        /^rgba?\(\s*(\d{1,3})\s*[, ]\s*(\d{1,3})\s*[, ]\s*(\d{1,3})/i,
+    );
+    if (rgbMatch) {
+        const r = Math.min(255, parseInt(rgbMatch[1], 10));
+        const g = Math.min(255, parseInt(rgbMatch[2], 10));
+        const b = Math.min(255, parseInt(rgbMatch[3], 10));
+        return `#${[r, g, b].map((n) => n.toString(16).padStart(2, '0')).join('')}`;
+    }
+
+    return trimmed;
+}
+
+/**
  * 根据字符串生成颜色
  * @param str
  */
