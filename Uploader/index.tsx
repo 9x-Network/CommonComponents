@@ -56,7 +56,10 @@ const Uploader = React.forwardRef((props: UploaderProps, ref) => {
         data = {},
         ...rest
     } = props;
-    const [commonHeaders] = useState(getRequestCommonHeaders());
+    const [commonHeaders, setCommonHeaders] = useState<Record<string, string>>({});
+    useEffect(() => {
+        void getRequestCommonHeaders().then((h) => setCommonHeaders(h as Record<string, string>));
+    }, []);
     let action = _action;
     const onChange = (val: string | string[]) => {
         if (!multiple && Array.isArray(val)) {

@@ -101,6 +101,13 @@ const RichTextEditor = React.forwardRef<RichTextEditorRef, RichTextEditorProps>(
     const { currentUser } = useUser();
     const [value, setValue] = useControllableValue(props);
     const [editor, setEditor] = useState<IDomEditor | null>(null);
+    const [uploadHeaders, setUploadHeaders] = useState<Record<string, string>>({});
+
+    useEffect(() => {
+        void getRequestCommonHeaders(currentUser).then((h) =>
+            setUploadHeaders(h as Record<string, string>),
+        );
+    }, [currentUser]);
 
     const initUploadConfig = (option?: Record<string, any>) => {
         return {
@@ -113,7 +120,7 @@ const RichTextEditor = React.forwardRef<RichTextEditorRef, RichTextEditorProps>(
             },
             withCredentials: true,
             timeout: 0,
-            headers: getRequestCommonHeaders(currentUser),
+            headers: uploadHeaders,
             customInsert(res: any, arg1: any, arg2: any) {
                 if (res.code != '0') {
                     message.error(res.msg);
