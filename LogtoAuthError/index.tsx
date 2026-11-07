@@ -5,6 +5,7 @@ import React from 'react';
 
 export type LogtoAuthErrorProps = {
     error?: unknown;
+    reason?: 'signIn' | 'unbound';
     title?: React.ReactNode;
     subTitle?: React.ReactNode;
     onRetry?: () => void;
@@ -37,6 +38,7 @@ export function resolveAuthErrorMessage(error: unknown): string {
 const LogtoAuthError: React.FC<LogtoAuthErrorProps> = (props) => {
     const {
         error,
+        reason = 'signIn',
         title,
         subTitle,
         onRetry,
@@ -51,6 +53,16 @@ const LogtoAuthError: React.FC<LogtoAuthErrorProps> = (props) => {
     } = props;
     const { formatMessage } = useIntl();
     const detail = resolveAuthErrorMessage(error);
+    const isUnbound = reason === 'unbound';
+    const titleId = isUnbound
+        ? 'components.logtoAuthError.unboundTitle'
+        : 'components.logtoAuthError.title';
+    const subTitleId = isUnbound
+        ? 'components.logtoAuthError.unboundSubTitle'
+        : 'components.logtoAuthError.subTitle';
+    const backToLoginId = isUnbound
+        ? 'components.logtoAuthError.signOut'
+        : 'components.logtoAuthError.backToLogin';
 
     const actions: React.ReactNode[] = [];
     if (onRetry) {
@@ -63,7 +75,7 @@ const LogtoAuthError: React.FC<LogtoAuthErrorProps> = (props) => {
     if (onBackToLogin) {
         actions.push(
             <Button key="backToLogin" onClick={onBackToLogin}>
-                {backToLoginText ?? formatMessage({ id: 'components.logtoAuthError.backToLogin' })}
+                {backToLoginText ?? formatMessage({ id: backToLoginId })}
             </Button>,
         );
     }
@@ -75,8 +87,8 @@ const LogtoAuthError: React.FC<LogtoAuthErrorProps> = (props) => {
         <div className={className} style={{ padding: 48, ...style }}>
             <Result
                 status={status}
-                title={title ?? formatMessage({ id: 'components.logtoAuthError.title' })}
-                subTitle={subTitle ?? formatMessage({ id: 'components.logtoAuthError.subTitle' })}
+                title={title ?? formatMessage({ id: titleId })}
+                subTitle={subTitle ?? formatMessage({ id: subTitleId })}
                 extra={actions.length ? actions : undefined}
             >
                 {showErrorDetail && detail ? (

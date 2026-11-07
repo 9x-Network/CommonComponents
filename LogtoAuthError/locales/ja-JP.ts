@@ -5,4 +5,8 @@ export default {
     'components.logtoAuthError.detail': 'エラー：{message}',
     'components.logtoAuthError.retry': '再試行',
     'components.logtoAuthError.backToLogin': 'サインインに戻る',
+    'components.logtoAuthError.unboundTitle': 'アカウント未連携',
+    'components.logtoAuthError.unboundSubTitle':
+        'この Logto アカウントは PayCloud アカウントに連携されていません。管理者にお問い合わせください。',
+    'components.logtoAuthError.signOut': 'サインアウト',
 };

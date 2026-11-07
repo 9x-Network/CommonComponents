@@ -5,4 +5,8 @@ export default {
     'components.logtoAuthError.detail': 'Erreur : {message}',
     'components.logtoAuthError.retry': 'Réessayer',
     'components.logtoAuthError.backToLogin': 'Retour à la connexion',
+    'components.logtoAuthError.unboundTitle': 'Compte non lié',
+    'components.logtoAuthError.unboundSubTitle':
+        "Ce compte Logto n'est pas lié à un compte PayCloud. Veuillez contacter votre administrateur.",
+    'components.logtoAuthError.signOut': 'Se déconnecter',
 };
